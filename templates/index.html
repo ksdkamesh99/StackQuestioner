@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>StackQuestioner</title>
+</head>
+<body>
+<center><h1>StackQuestioner</h1></center>
+<form action="predict/" method="POST">
+{% csrf_token %}
+	<input type="text" name="ques">
+	<input type="submit" name="submit">
+</form>
+{{predicted}}
+</body>
+</html>
