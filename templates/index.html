@@ -2,14 +2,46 @@
 <html>
 <head>
 	<title>StackQuestioner</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
 <center><h1>StackQuestioner</h1></center>
-<form action="predict/" method="POST">
+<form action="predict/" method="POST" id="myform">
 {% csrf_token %}
-	<input type="text" name="ques">
-	<input type="submit" name="submit">
+<center>
+	<h3>Enter the Question</h3>
+	<input type="text" name="ques" style="width:300px;height:100px;"><br><br>
+	<button id="submit">Predict</button>
+</center>
 </form>
-{{predicted}}
+<center><h2 id="result"></h2></center>
+ <script type="text/javascript">
+
+       $(function() {
+    $('#submit').click(function() {
+        event.preventDefault();
+        var form_data = new FormData($('#myform')[0]);
+        console.log(form_data);
+        $.ajax({
+            type: 'POST',
+            url: 'predict/',
+            data: form_data,
+            contentType: false,
+            processData: false,
+        }).done(function(data, textStatus, jqXHR){
+            
+            $('#result').text(data);
+
+
+
+        }).fail(function(data){
+            alert('error!');
+        });
+    });
+}); 
+
+    
+</script>
 </body>
 </html>
