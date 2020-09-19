@@ -4,7 +4,6 @@ import pickle
 from django.http import HttpResponse
 import tensorflow,keras
 import pickle
-import tensorflow
 import re
 import nltk
 from nltk.corpus import stopwords
