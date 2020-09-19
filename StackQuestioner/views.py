@@ -2,7 +2,7 @@ from django.shortcuts import render
 import numpy as np
 import pickle
 from django.http import HttpResponse
-import tensorflow,keras
+import tensorflow
 import pickle
 import re
 import nltk
