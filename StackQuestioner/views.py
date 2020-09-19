@@ -1,6 +1,5 @@
 from django.shortcuts import render
 import numpy as np
-import pickle
 from django.http import HttpResponse
 import tensorflow
 import pickle
